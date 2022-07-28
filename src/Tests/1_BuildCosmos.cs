@@ -11,7 +11,7 @@ namespace Tests
     {
         private TestConfig _testConfig = new TestConfig();
 
-        [Fact]
+       // [Fact]
         public async Task SC00_MigrateDB()
         {
             var client = new CosmosClient(_testConfig.EndpointUrl, _testConfig.AuthorizationKey);
