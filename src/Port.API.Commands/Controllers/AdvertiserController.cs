@@ -1,7 +1,9 @@
 using System.Threading.Tasks;
-using APIC.ViewModels;
-using Domain.ES.EventStore;
+using Application.Advertisers.Commands;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Port.API.Commands.Models;
 
 namespace Port.API.Commands.Controllers
 {
@@ -9,19 +11,23 @@ namespace Port.API.Commands.Controllers
     [Route("[controller]")]
     public class AdvertiserController : BaseController
     {
-        [HttpPost]
-        public async Task<IActionResult> Add(AdvertiserViewModel vm)
-        {
-            var eventUserInfo = new EventUserInfo();
-            return new OkResult();
+        private readonly ILogger<AdvertiserController> _logger;
+        private IMediator _mediator;
 
-            // return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            //     {
-            //         Date = DateTime.Now.AddDays(index),
-            //         TemperatureC = Random.Shared.Next(-20, 55),
-            //         Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            //     })
-            //     .ToArray();
+        public AdvertiserController(ILogger<AdvertiserController> logger, IMediator mediator)
+        {
+            _logger = logger;
+            _mediator = mediator;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddAdvertiser(AddAdvertiserViewModel model)
+        {
+            var eventUserInfo = base.GetUserInfo();
+            var command = new AddAdvertiser(eventUserInfo, model.Id, model.Name);
+            var result = await _mediator.Send(command);
+            return Ok();
+        }
+
     }
 }
