@@ -23,6 +23,7 @@ namespace Application.Advertisers.Commands
         }
     }
 
+
     public class RenameAdvertiserHandler : IRequestHandler<RenameAdvertiser>
     {
         private IRepository _repo;
