@@ -32,7 +32,6 @@ namespace Domain.ES.Projections
                 }
 
                 handler(@event, payload);
-
                 view.Payload = JObject.FromObject(payload);
             }
         }

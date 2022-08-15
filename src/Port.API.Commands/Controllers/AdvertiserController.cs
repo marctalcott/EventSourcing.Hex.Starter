@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Application.Advertisers.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Port.API.Commands.Models;
@@ -19,8 +20,9 @@ namespace Port.API.Commands.Controllers
             _logger = logger;
             _mediator = mediator;
         }
-
-        [HttpPost]
+ 
+        [Authorize]
+        [HttpPost("private")]
         public async Task<IActionResult> AddAdvertiser(AddAdvertiserViewModel model)
         {
             var eventUserInfo = base.GetUserInfo();
