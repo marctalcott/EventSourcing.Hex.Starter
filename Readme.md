@@ -44,4 +44,9 @@ IMO they are all so close that it doesn't really matter. They share the same cor
   },
   "AllowedHosts": "*"
 }
-Footer
+
+---
+
+And then to get a token using POSTMan, you can setup a POST using the information from Auth0 / APIs / Your API page / Settings / Test
+
+That will give you the url, header, and body data to POST in order to get your AccessToken, which you can then use to call secured controller api endpoints.
