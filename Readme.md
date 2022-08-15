@@ -26,3 +26,19 @@ IMO they are all so close that it doesn't really matter. They share the same cor
   - Services that handle cross cutting concerns (mail, logging, etc)
 - #### UnitTests
 
+---
+{
+  "Auth0": {
+    "Domain": "value from: Auth0 - Applications / Your Application / Settings / Domain textbox",
+    "Audience": "value from: Auth0 - APIs / Your API / Settings / Identifier textbox"
+  },
+  "AppName": "EventSourcing.Hex.Starter",
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}
+Footer
