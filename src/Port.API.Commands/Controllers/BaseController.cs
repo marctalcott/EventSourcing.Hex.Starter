@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace Port.API.Commands.Controllers
 {
-    [Authorize]
+
     public class BaseController : ControllerBase
     {
         public BaseController()
