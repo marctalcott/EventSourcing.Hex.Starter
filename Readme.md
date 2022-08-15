@@ -27,6 +27,9 @@ IMO they are all so close that it doesn't really matter. They share the same cor
 - #### UnitTests
 
 ---
+
+### Example data for your AppSettings.Local.json file:
+
 {
   "Auth0": {
     "Domain": "value from: Auth0 - Applications / Your Application / Settings / Domain textbox",
