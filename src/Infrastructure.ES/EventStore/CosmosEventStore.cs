@@ -5,7 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using Domain.ES.Events;
 using Domain.ES.EventStore;
-using Domain.Exceptions;
+using Domain.ES.Exceptions;
 using Microsoft.Azure.Cosmos;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

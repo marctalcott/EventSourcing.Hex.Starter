@@ -62,7 +62,7 @@ namespace Port.API.Commands.Controllers
             //TODO: This should throw an exception but doing so breaks the creation of accounts
             if (string.IsNullOrWhiteSpace(nameIdentifier))
             {
-                // throw new ApplicationException("We expected a nameIdentifer in the token and it was not there.");
+                // throw new AppException("We expected a nameIdentifer in the token and it was not there.");
                 nameIdentifier = "todo|anonymous";
             }
 

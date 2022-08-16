@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+
+
 using Domain.ES.Events;
-using Domain.Events;
 
 namespace Domain.Aggregates
 {
