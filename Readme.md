@@ -14,17 +14,22 @@ IMO they are all so close that it doesn't really matter. They share the same cor
 
 ## Layers
 - #### Ports: 
-  - Exposes inputs to the application such as your API projects.
+  - Projects that start with 'Port.' are the interfaces to external systems. This will be your API's, EventListeners, etc.
 - #### Application:
   - This is where the CQRS Commands and Queries live.
 - #### Domain:
   - Aggregates live here.
   - ValueObjects
   - Interfaces that should be implemented in the Infrastructe Layer to reach out to backend services
+- ### Domain.ES:
+  - You generally don't need to work in this project. It defines the base classes and interfaces needed by the EventSourcing code
 - #### Infrastructure:
   - Repositories 
   - Services that handle cross cutting concerns (mail, logging, etc)
-- #### UnitTests
+- #### Infrastructure.ES:
+  - You generally don't need to work in this project. It defines core code for the EventSourcing logic.
+- #### Tests
+  - Unit tests.
 
 ---
 
