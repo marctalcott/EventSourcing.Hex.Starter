@@ -1,6 +1,6 @@
 using System;
 
-namespace Domain.Exceptions
+namespace Domain.ES.Exceptions
 {
     public class NotFoundException : Exception
     {

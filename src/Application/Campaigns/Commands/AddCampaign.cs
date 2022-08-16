@@ -3,10 +3,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Domain.Aggregates;
 using Domain.ES.EventStore;
-using Domain.Exceptions;
+using Domain.ES.Exceptions;
 using Infrastructure.ES.EventStore;
 using MediatR;
-using ApplicationException = Domain.Exceptions.ApplicationException;
 
 
 namespace Application.Campaigns.Commands
@@ -50,7 +49,7 @@ namespace Application.Campaigns.Commands
             CancellationToken cancellationToken)
         {
             if (command.EventUserInfo == null)
-                throw new ApplicationException("User must be defined.");
+                throw new AppException("User must be defined.");
 
             // make sure that advertiser exists.
             try
@@ -65,7 +64,7 @@ namespace Application.Campaigns.Commands
             var campaign = new Campaign(command.Id, command.AdvertiserId, command.Name, command.StartDate, command.EndDate);
             bool saved = await _repo.Save(command.EventUserInfo, campaign);
             if (!saved)
-                throw new ApplicationException($"{nameof(campaign)} not added.  Was the Id a unique value?");
+                throw new AppException($"{nameof(campaign)} not added.  Was the Id a unique value?");
             return Unit.Value;
         }
     }
